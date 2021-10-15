@@ -93,6 +93,7 @@ const Home = () => {
 
   const removeSearch = () => {
     reset();
+    refetchHistory();
   }
   const handleClick = (e: any) => {
 
@@ -107,7 +108,6 @@ const Home = () => {
     }
     mutate(SEARCH_URL + query);
     e.target.value = "";
-    refetchHistory();
   }
 
   return (
