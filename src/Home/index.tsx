@@ -107,7 +107,7 @@ const Home = () => {
       return toast.error("please enter a city name")
     }
     mutate(SEARCH_URL + query);
-    e.target.value = "";
+    e.target.value = ""; // remove string from search
   }
 
   return (
