@@ -53,6 +53,32 @@ describe("Search Test", () => {
     expect(getByText(/please enter a city name/i)).toBeInTheDocument();
   });
 })
+// describe("Search Error Test", () => {
+//   beforeAll(() => {
+//     nock(REACT_APP_SERVER_URL || "")
+//       .get(`/${WEATHER_URL}`)
+//       .reply(200, weatherResponseMock);
+//     nock(REACT_APP_SERVER_URL || "")
+//       .get(`/${SEARCH_HISTORY_URL}`)
+//       .reply(200, searchHistoryMock);
+//     nock(REACT_APP_SERVER_URL || "")
+//       .post(`/${SEARCH_URL_TEST}`)
+//       .query({
+//         searchQuery: wrongSearchStr
+//       })
+//       .reply(200, searchError);
+//   });
+//   it("returns an error message when an invalid city is inputed", async () => {
+//     const { queryByText, getByText, getByTestId } = render();
+//     const input1 = getByTestId('search');
+//     fireEvent.change(input1, { target: { value: wrongSearchStr } });
+//     fireEvent.keyPress(input1, { key: 'Enter' });
+//     // await waitForElementToBeRemoved(() => queryByText("please enter a city name"));
+//     expect(getByText(searchErrorMsg)).toBeInTheDocument();
+//     await waitForElementToBeRemoved(() => queryByText(searchErrorMsg));
+//     expect(getByText(searchErrorMsg)).not.toBeInTheDocument();
+//   });
+// });
 
 describe("View History Test", () => {
   beforeEach(() => {

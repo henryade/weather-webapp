@@ -1,6 +1,10 @@
 import { useMutation, useQuery } from "react-query";
 import axios from "axios";
+import { QueryClient } from "react-query";
+const queryClient = new QueryClient();
 
+
+let url_str: string = "";
 axios.defaults.adapter = require('axios/lib/adapters/http');
 
 const GetQuery = async (url: string) => {
@@ -24,7 +28,11 @@ const GetData = (url: string, fetchOnPageLoad:boolean = false) => {
 };
 
 const PostData = (): any => {
-  return useMutation((url: string) => PostQuery(url));
+  return useMutation((url: string) => { url_str = url; return PostQuery(url);}, {
+    onSuccess: () => {
+      queryClient.invalidateQueries(url_str)
+    }
+  });
 };
 
 export {

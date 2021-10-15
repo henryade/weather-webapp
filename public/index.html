@@ -10,6 +10,12 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+    <script>
+      var host = "www.weather-api-server-app.herokuapp.com" || "weather-api-server-app.herokuapp.com";
+      if ((host == window.location.host) && (window.location.protocol != "https:")) {
+        window.location.protocol = "https";
+      }
+    </script>
     <title>Weather App</title>
   </head>
   <body>
